@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CÓDIGO 52</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    #stripe-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    #stripes {
+      display: flex;
+      height: 100%;
+      animation: slide 10s linear infinite;
+    }
+
+    .stripe { width: 40px; }
+    .s1 { background: #00b050; }
+    .s2 { background: #ff00cc; }
+    .s3 { background: #ff0000; }
+    .s4 { background: #0000ff; }
+    .s5 { background: #ffff00; }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-200px); }
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    .logo {
+      height: 80px;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .indice {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      background: #000;
+      padding: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .indice a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .rotating-text {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 1.5rem auto;
+      font-weight: 400;
+      height: 2em;
+    }
+
+    .main-img-container {
+      position: relative;
+      width: 90%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .main-img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .humo-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('IMG_1478.jpg') center/cover no-repeat;
+      opacity: 0.4;
+      mix-blend-mode: screen;
+      animation: humo 3s ease-in-out infinite alternate;
+      z-index: 2;
+      border-radius: 10px;
+      pointer-events: none;
+    }
+
+    @keyframes humo {
+      0% { transform: translateY(0px); opacity: 0.35; }
+      100% { transform: translateY(-100px); opacity: 0.5; }
+    }
+
+    @media(min-width: 768px) {
+      .indice a {
+        font-size: 1.4rem;
+      }
+
+      .rotating-text {
+        font-size: 1.7rem;
+      }
+
+      .logo {
+        height: 100px;
+      }
+    }
+  
+    .site-header {
+      max-width: 960px;
+      margin: 1rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .site-header .logo {
+      height: 80px;
+    }
+
+    .site-header nav {
+      margin-top: 1rem;
+    }
+
+    @media(min-width: 768px) {
+      .site-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 100px;
+      }
+      .site-header nav {
+        margin-top: 0;
+      }
+    }
+</style>
+</head>
+<body>
+  <div id="stripe-container">
+    <div id="stripes">
+      <div class="stripe s1"></div>
+      <div class="stripe s2"></div>
+      <div class="stripe s3"></div>
+      <div class="stripe s4"></div>
+      <div class="stripe s5"></div>
+      <div class="stripe s1"></div>
+      <div class="stripe s2"></div>
+      <div class="stripe s3"></div>
+      <div class="stripe s4"></div>
+      <div class="stripe s5"></div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <img src="codigo52_transparente.png" alt="Logo Código 52" class="logo" style="height:100px;">
+    <nav style="margin-left:auto;">
+      <a href="#">Iniciar sesión</a>
+      <a href="#">Suscríbete</a>
+      <a href="#">Participa</a>
+    </nav>
+  </header>
+
+  <div class="indice">
+    <a href="#">Historias</a>
+    <a href="#">Mente</a>
+    <a href="#">Salud</a>
+    <a href="#">Ideas</a>
+    <a href="#">Concursos</a>
+    <a href="#">Impactemos juntos</a>
+  </div>
+
+  <div class="rotating-text" id="text-rotator">¡Vemos lo positivo!</div>
+
+  <div class="main-img-container">
+    <img src="IMG_1478.jpg" alt="Manos con humo" class="main-img">
+    
+  </div>
+
+  <script>
+    const phrases = [
+      "¡Vemos lo positivo!",
+      "¡Hartos de lo negativo!",
+      "¡Somos más que cabezas cortadas y corrupción!"
+    ];
+    let current = 0;
+    const el = document.getElementById("text-rotator");
+    setInterval(() => {
+      current = (current + 1) % phrases.length;
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.textContent = phrases[current];
+        el.style.opacity = 1;
+      }, 400);
+    }, 5000);
+  </script>
+</body>
+</html>
