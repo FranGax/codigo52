@@ -2,55 +2,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artículos - Código 52</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Lato', sans-serif;
-      background-color: #010000;
+      background-color: #000;
       color: white;
-      padding: 20px;
+      padding: 24px;
     }
     h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
       color: #00ff00;
     }
-    .article-link {
-      display: block;
+    .card {
+      background-color: #111;
       padding: 16px;
-      background: #111;
-      margin-bottom: 14px;
-      border-radius: 10px;
-      color: white;
-      text-decoration: none;
-      transition: background 0.3s ease;
+      border-radius: 12px;
+      margin-bottom: 16px;
     }
-    .article-link:hover {
-      background: #222;
+    .card h2 {
+      margin: 0;
     }
-    .article-title {
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .article-excerpt {
-      font-size: 14px;
+    .card p {
+      margin: 6px 0 0 0;
       color: #ccc;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
   </style>
 </head>
 <body>
   <h1>Explora artículos</h1>
-  <a class="article-link" href="articulo1.html">
-    <div class="article-title">El valor de lo inesperado</div>
-    <div class="article-excerpt">Cómo los momentos no planeados pueden transformarnos.</div>
+  <a href="articulo1.html">
+    <div class="card">
+      <h2>El valor de lo inesperado</h2>
+      <p>Cómo los momentos no planeados pueden transformarnos.</p>
+    </div>
   </a>
-  <a class="article-link" href="articulo2.html">
-    <div class="article-title">Conexión en caos</div>
-    <div class="article-excerpt">Vínculos reales cuando el mundo se desordena.</div>
+  <a href="articulo2.html">
+    <div class="card">
+      <h2>Conexión en caos</h2>
+      <p>Vínculos reales cuando el mundo se desordena.</p>
+    </div>
   </a>
 </body>
 </html>
