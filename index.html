@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Código 52</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #010000;
+      font-family: 'Lato', sans-serif;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    .logo img {
+      height: 60px;
+    }
+    .explore-btn {
+      background-color: transparent;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin: 8px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .menu a:hover {
+      color: #00ff00;
+    }
+
+    .frases-dinamicas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      font-size: 1.2em;
+      text-align: center;
+      padding: 20px;
+    }
+    .frases-dinamicas span {
+      opacity: 0;
+      position: absolute;
+      transition: opacity 1s ease;
+    }
+    .frases-dinamicas span.visible {
+      opacity: 1;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 10px;
+    }
+    .hero-bg {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    @media screen and (min-width: 769px) {
+      .explore-btn, .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="codigo52_transparente.png" alt="Código 52 Logo" />
+    </div>
+    <button class="explore-btn" id="exploreBtn" onclick="toggleMenu()">Explora <span id="arrow">▼</span></button>
+    <div class="menu" id="menu">
+      <a href="#">Historias</a>
+      <a href="#">Mente</a>
+      <a href="#">Salud</a>
+      <a href="#">Ideas</a>
+      <a href="#">Concursos</a>
+      <a href="#">Impactemos juntos</a>
+    </div>
+  </header>
+
+  <section class="frases-dinamicas">
+    <span class="visible">¡Somos más que cabezas cortadas y corrupción!</span>
+    <span>¡Inspirar también es rebelarse!</span>
+    <span>¡Audaces, no perfectos!</span>
+    <span>¡Unidos, no iguales!</span>
+  </section>
+
+  <main>
+    <section class="hero">
+      <img src="IMG_1478.jpg" alt="Fondo emocional" class="hero-bg" />
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      const arrow = document.getElementById("arrow");
+      const isOpen = menu.style.display === "flex";
+      menu.style.display = isOpen ? "none" : "flex";
+      arrow.textContent = isOpen ? "▼" : "▲";
+    }
+
+    const frases = document.querySelectorAll(".frases-dinamicas span");
+    let index = 0;
+    setInterval(() => {
+      frases.forEach((el, i) => el.classList.toggle("visible", i === index));
+      index = (index + 1) % frases.length;
+    }, 3000);
+  </script>
+</body>
+</html>
