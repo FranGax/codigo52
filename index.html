@@ -21,9 +21,9 @@
       height: 60px;
     }
     .explore-btn {
-      background-color: #111;
-      border: 1px solid #555;
-      color: white;
+      background-color: transparent;
+      border: 1px solid #00ff00;
+      color: #00ff00;
       padding: 10px 20px;
       font-size: 16px;
       border-radius: 20px;
@@ -33,11 +33,6 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-    }
-    .explore-btn:hover {
-      color: #00ff00;
-      border-color: #00ff00;
-      background-color: #1a1a1a;
     }
     .menu {
       display: none;
@@ -90,35 +85,14 @@
         display: none;
       }
     }
-  
-    .barra-color {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-      height: 4px;
-      background: linear-gradient(90deg, #00ff00, #0077ff, #ff00cc, #00ff00);
-      background-size: 300% 100%;
-      animation: gradientMove 6s linear infinite;
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-    </style>
-    
+  </style>
 </head>
 <body>
-  
-  <div class="barra-color"></div>
   <header>
-    
     <div class="logo">
       <img src="codigo52_transparente.png" alt="Código 52 Logo" />
     </div>
-    <button class="explore-btn" onclick="toggleMenu()">Explora <span>▼</span></button>
+    <button class="explore-btn" id="exploreBtn" onclick="toggleMenu()">Explora <span id="arrow">▼</span></button>
     <div class="menu" id="menu">
       <a href="#">Historias</a>
       <a href="#">Mente</a>
@@ -145,7 +119,10 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById("menu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+      const arrow = document.getElementById("arrow");
+      const isOpen = menu.style.display === "flex";
+      menu.style.display = isOpen ? "none" : "flex";
+      arrow.textContent = isOpen ? "▼" : "▲";
     }
 
     const frases = document.querySelectorAll(".frases-dinamicas span");
