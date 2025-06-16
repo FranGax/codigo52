@@ -21,19 +21,23 @@
       height: 60px;
     }
     .explore-btn {
-      background-color: transparent;
-      border: 1px solid white;
+      background-color: #111;
+      border: 1px solid #555;
       color: white;
-      padding: 8px 16px;
+      padding: 10px 20px;
       font-size: 16px;
-      border-radius: 8px;
+      border-radius: 20px;
       cursor: pointer;
       margin-top: 12px;
-      transition: color 0.3s ease, border-color 0.3s ease;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .explore-btn:hover {
       color: #00ff00;
       border-color: #00ff00;
+      background-color: #1a1a1a;
     }
     .menu {
       display: none;
@@ -86,14 +90,35 @@
         display: none;
       }
     }
-  </style>
+  
+    .barra-color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+      height: 4px;
+      background: linear-gradient(90deg, #00ff00, #0077ff, #ff00cc, #00ff00);
+      background-size: 300% 100%;
+      animation: gradientMove 6s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    </style>
+    
 </head>
 <body>
+  
+  <div class="barra-color"></div>
   <header>
+    
     <div class="logo">
       <img src="codigo52_transparente.png" alt="Código 52 Logo" />
     </div>
-    <button class="explore-btn" onclick="toggleMenu()">Explora</button>
+    <button class="explore-btn" onclick="toggleMenu()">Explora <span>▼</span></button>
     <div class="menu" id="menu">
       <a href="#">Historias</a>
       <a href="#">Mente</a>
